@@ -2,36 +2,44 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 class NativeCheckbox extends React.PureComponent {
-    static propTypes = {
-        indeterminate: PropTypes.bool,
-    };
+  static propTypes = {
+    indeterminate: PropTypes.bool,
+  };
 
-    static defaultProps = {
-        indeterminate: false,
-    };
+  static defaultProps = {
+    indeterminate: false,
+  };
 
-    componentDidMount() {
-        this.updateDeterminateProperty();
-    }
+  componentDidMount() {
+    this.updateDeterminateProperty();
+  }
 
-    componentDidUpdate() {
-        this.updateDeterminateProperty();
-    }
+  componentDidUpdate() {
+    this.updateDeterminateProperty();
+  }
 
-    updateDeterminateProperty() {
-        const { indeterminate } = this.props;
+  updateDeterminateProperty() {
+    const { indeterminate } = this.props;
 
-        this.checkbox.indeterminate = indeterminate;
-    }
+    this.checkbox.indeterminate = indeterminate;
+  }
 
-    render() {
-        const props = { ...this.props };
+  render() {
+    const props = { ...this.props };
 
-        // Remove property that does not exist in HTML
-        delete props.indeterminate;
+    // Remove property that does not exist in HTML
+    delete props.indeterminate;
 
-        return <input {...props} ref={(c) => { this.checkbox = c; }} type="checkbox" />;
-    }
+    return (
+      <input
+        {...props}
+        ref={c => {
+          this.checkbox = c;
+        }}
+        type="checkbox"
+      />
+    );
+  }
 }
 
 export default NativeCheckbox;
