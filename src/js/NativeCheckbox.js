@@ -3,42 +3,42 @@ import React from 'react';
 
 class NativeCheckbox extends React.PureComponent {
   static propTypes = {
-    indeterminate: PropTypes.bool,
+      indeterminate: PropTypes.bool,
   };
 
   static defaultProps = {
-    indeterminate: false,
+      indeterminate: false,
   };
 
   componentDidMount() {
-    this.updateDeterminateProperty();
+      this.updateDeterminateProperty();
   }
 
   componentDidUpdate() {
-    this.updateDeterminateProperty();
+      this.updateDeterminateProperty();
   }
 
   updateDeterminateProperty() {
-    const { indeterminate } = this.props;
+      const { indeterminate } = this.props;
 
-    this.checkbox.indeterminate = indeterminate;
+      this.checkbox.indeterminate = indeterminate;
   }
 
   render() {
-    const props = { ...this.props };
+      const props = { ...this.props };
 
-    // Remove property that does not exist in HTML
-    delete props.indeterminate;
+      // Remove property that does not exist in HTML
+      delete props.indeterminate;
 
-    return (
-      <input
-        {...props}
-        ref={c => {
-          this.checkbox = c;
-        }}
-        type="checkbox"
-      />
-    );
+      return (
+          <input
+              {...props}
+              ref={(c) => {
+                  this.checkbox = c;
+              }}
+              type="checkbox"
+          />
+      );
   }
 }
 
