@@ -39,8 +39,8 @@
             value(e) {
                 let t = this,
                     n = []; return Object.keys(this.nodes).forEach((r) => { t.nodes[r][e] && n.push(r); }), n;
-            }, 
-        }, { key: 'isEveryChildChecked', value(e) { const t = this; return e.children.every(e => (e.children!==null?t.isEveryChildChecked(e):e.checked)); } }, { key: 'isSomeChildChecked', value(e) { const t = this; return e.children.some(e => (e.children!==null?t.isSomeChildChecked(e):e.checked)); } }, {
+            },
+        }, { key: 'isEveryChildChecked', value(e) { const t = this; return e.children.every(e => (e.children !== null ? t.isEveryChildChecked(e) : e.checked)); } }, { key: 'isSomeChildChecked', value(e) { const t = this; return e.children.some(e => (e.children !== null ? t.isSomeChildChecked(e) : e.checked)); } }, {
             key: 'renderTreeNodes',
             value(e) {
                 let t = this,
@@ -55,7 +55,7 @@
                     p = r.showNodeIcon,
                     d = r.onClick,
                     h = e.map((e) => {
-                        let r = `${  e.value}`,
+                        let r = `${e.value}`,
                             h = t.getCheckState(e, l),
                             v = e.children === null,
                             m = t.renderChildNodes(e),
@@ -69,18 +69,18 @@
             key: 'renderArrayHiddenInput',
             value() {
                 const e = this; return this.props.checked.map((t) => {
-                    let n = `${e.props.name }[]`; return u.default.createElement('input', {
+                    const n = `${e.props.name}[]`; return u.default.createElement('input', {
                         key: t, name: n, type: 'hidden', value: t,
-                    }); 
-});
-            }, 
+                    });
+                });
+            },
         }, { key: 'renderJoinedHiddenInput', value() { const e = this.props.checked.join(','); return u.default.createElement('input', { name: this.props.name, type: 'hidden', value: e }); } }, {
             key: 'render',
             value() {
                 let e = this.getFormattedNodes(this.props.nodes),
                     t = this.renderTreeNodes(e),
                     n = (0, a.default)({ 'react-checkbox-tree': !0, 'rct-disabled': this.props.disabled, 'rct-native-display': this.props.nativeCheckboxes }); return u.default.createElement('div', { className: n }, this.renderHiddenInput(), t);
-            }, 
+            },
         }]), t;
     }()); d.propTypes = {
         nodes: l.default.arrayOf(f.default).isRequired, checked: l.default.arrayOf(l.default.string), disabled: l.default.bool, expandDisabled: l.default.bool, expandOnClick: l.default.bool, expanded: l.default.arrayOf(l.default.string), name: l.default.string, nameAsArray: l.default.bool, nativeCheckboxes: l.default.bool, noCascade: l.default.bool, onlyLeafCheckboxes: l.default.bool, optimisticToggle: l.default.bool, showNodeIcon: l.default.bool, onCheck: l.default.func, onClick: l.default.func, onExpand: l.default.func,
@@ -218,7 +218,7 @@ object-assign
                 if (typeof t !== 'function' && t !== null) throw new TypeError(`Super expression must either be null or a function, not ${typeof t}`); e.prototype = Object.create(t && t.prototype, {
                     constructor: {
                         value: e, enumerable: !1, writable: !0, configurable: !0,
-                    }, 
+                    },
                 }), t && (Object.setPrototypeOf ? Object.setPrototypeOf(e, t) : e.__proto__ = t);
             }(t, o.default.Component)), r(t, [{ key: 'onCheck', value(e) { this.setState({ checked: e }); } }, { key: 'onExpand', value(e) { this.setState({ expanded: e }); } }, {
                 key: 'render',
@@ -262,7 +262,7 @@ object-assign
                 if (typeof t !== 'function' && t !== null) throw new TypeError(`Super expression must either be null or a function, not ${typeof t}`); e.prototype = Object.create(t && t.prototype, {
                     constructor: {
                         value: e, enumerable: !1, writable: !0, configurable: !0,
-                    }, 
+                    },
                 }), t && (Object.setPrototypeOf ? Object.setPrototypeOf(e, t) : e.__proto__ = t);
             }(t, o.default.Component)), r(t, [{ key: 'onCheck', value(e) { this.setState({ checked: e }); } }, { key: 'onExpand', value(e) { this.setState({ expanded: e }); } }, {
                 key: 'render',
@@ -284,7 +284,7 @@ object-assign
                 if (typeof t !== 'function' && t !== null) throw new TypeError(`Super expression must either be null or a function, not ${typeof t}`); e.prototype = Object.create(t && t.prototype, {
                     constructor: {
                         value: e, enumerable: !1, writable: !0, configurable: !0,
-                    }, 
+                    },
                 }), t && (Object.setPrototypeOf ? Object.setPrototypeOf(e, t) : e.__proto__ = t);
             }(t, o.default.Component)), r(t, [{ key: 'onCheck', value(e) { this.setState({ checked: e }); } }, { key: 'onExpand', value(e) { this.setState({ expanded: e }); } }, {
                 key: 'render',
@@ -306,7 +306,7 @@ object-assign
                 if (typeof t !== 'function' && t !== null) throw new TypeError(`Super expression must either be null or a function, not ${typeof t}`); e.prototype = Object.create(t && t.prototype, {
                     constructor: {
                         value: e, enumerable: !1, writable: !0, configurable: !0,
-                    }, 
+                    },
                 }), t && (Object.setPrototypeOf ? Object.setPrototypeOf(e, t) : e.__proto__ = t);
             }(t, o.default.Component)), r(t, [{ key: 'onCheck', value(e) { this.setState({ checked: e }); } }, { key: 'onExpand', value(e) { this.setState({ expanded: e }); } }, {
                 key: 'render',
@@ -850,7 +850,7 @@ object-assign
         e._valueTracker || (e._valueTracker = (function (e) {
             let t = Ke(e) ? 'checked' : 'value',
                 n = Object.getOwnPropertyDescriptor(e.constructor.prototype, t),
-                r = `${e[t]}`; if (!e.hasOwnProperty(t) && typeof n.get === 'function' && typeof n.set === 'function') return Object.defineProperty(e, t, { configurable: !0, get() { return n.get.call(this); }, set(e) { r = `${e}`, n.set.call(this, e); } }), Object.defineProperty(e, t, { enumerable: n.enumerable }), { getValue() { return r; }, setValue(e) { r = `${ e}`; }, stopTracking() { e._valueTracker = null, delete e[t]; } };
+                r = `${e[t]}`; if (!e.hasOwnProperty(t) && typeof n.get === 'function' && typeof n.set === 'function') return Object.defineProperty(e, t, { configurable: !0, get() { return n.get.call(this); }, set(e) { r = `${e}`, n.set.call(this, e); } }), Object.defineProperty(e, t, { enumerable: n.enumerable }), { getValue() { return r; }, setValue(e) { r = `${e}`; }, stopTracking() { e._valueTracker = null, delete e[t]; } };
         }(e)));
     } function $e(e) {
         if (!e) return !1; const t = e._valueTracker; if (!t) return !0; let n = t.getValue(),
@@ -1175,10 +1175,10 @@ object-assign
             };
         }(T)); var O = (function (e) {
                 function t(e, t) { const n = new Kn(5, null, null, 0); n.type = 'DELETED', n.stateNode = t, n.return = e, n.effectTag = 8, e.lastEffect !== null ? (e.lastEffect.nextEffect = n, e.lastEffect = n) : e.firstEffect = e.lastEffect = n; } function n(e, t) { switch (e.tag) { case 5: return (t = a(t, e.type, e.pendingProps)) !== null && (e.stateNode = t, !0); case 6: return (t = i(t, e.pendingProps)) !== null && (e.stateNode = t, !0); default: return !1; } } function r(e) { for (e = e.return; e !== null && e.tag !== 5 && e.tag !== 3;)e = e.return; p = e; } const o = e.shouldSetTextContent; if (!(e = e.hydration)) {
- return {
-                    enterHydrationState() { return !1; }, resetHydrationState() {}, tryToClaimNextHydratableInstance() {}, prepareToHydrateHostInstance() { f('175'); }, prepareToHydrateHostTextInstance() { f('176'); }, popHydrationState() { return !1; },
-                }; 
-} var a = e.canHydrateInstance,
+                    return {
+                        enterHydrationState() { return !1; }, resetHydrationState() {}, tryToClaimNextHydratableInstance() {}, prepareToHydrateHostInstance() { f('175'); }, prepareToHydrateHostTextInstance() { f('176'); }, popHydrationState() { return !1; },
+                    };
+                } var a = e.canHydrateInstance,
                     i = e.canHydrateTextInstance,
                     l = e.getNextHydratableSibling,
                     u = e.getFirstHydratableChild,

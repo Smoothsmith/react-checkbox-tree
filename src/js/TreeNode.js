@@ -24,7 +24,7 @@ class TreeNode extends React.Component {
       icon: PropTypes.node,
       rawChildren: PropTypes.arrayOf(nodeShape),
       showCheckbox: PropTypes.bool,
-	  parent: PropTypes.object
+	  parent: PropTypes.object,
   };
 
   static defaultProps = {

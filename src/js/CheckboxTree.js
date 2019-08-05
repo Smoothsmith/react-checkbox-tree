@@ -23,7 +23,7 @@ class CheckboxTree extends React.Component {
       showNodeIcon: PropTypes.bool,
       onCheck: PropTypes.func,
       onExpand: PropTypes.func,
-	  dynamicUpdate: PropTypes.bool
+	  dynamicUpdate: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -40,7 +40,7 @@ class CheckboxTree extends React.Component {
       showNodeIcon: true,
       onCheck: () => {},
       onExpand: () => {},
-	  dynamicUpdate: false
+	  dynamicUpdate: false,
   };
 
   constructor(props) {
@@ -88,7 +88,7 @@ class CheckboxTree extends React.Component {
           formatted.showCheckbox = node.showCheckbox !== undefined ? node.showCheckbox : true;
 
           if (Array.isArray(node.children) && node.children.length > 0) {
-              formatted.children = 
+              formatted.children =
 				this.getFormattedNodes(formatted.children, { parent, key: formatted.value });
           } else {
               formatted.children = null;

@@ -23,20 +23,9 @@ gulp.task('test-script-format', () => (
     ])
         .pipe(eslint())
         .pipe(eslint.format())
-        .pipe(eslint.failOnError())
 ));
 
-gulp.task('test-mocha', ['test-script-format'], () => (
-    gulp.src(['./test/**/*.js'])
-        .pipe(mocha({
-            require: [
-                'babel-register',
-                './test/setup.js',
-            ],
-        }))
-));
-
-gulp.task('test', ['test-script-format', 'test-mocha']);
+gulp.task('test', ['test-script-format']);
 
 gulp.task('build-script', ['test'], () => (
     gulp.src(['./src/index.js'])
