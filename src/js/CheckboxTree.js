@@ -183,9 +183,9 @@ class CheckboxTree extends React.Component {
             return 2;
         }
 
-		if (node.checked) {
-			return 3;
-		}
+        if (node.checked) {
+            return 3;
+        }
 
         return 0;
     }
