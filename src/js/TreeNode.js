@@ -147,8 +147,12 @@ class TreeNode extends React.Component {
         if (checked === 1) {
             return check;
         }
+		
+		if (checked === 2) {
+			return halfCheck;
+		}
 
-        return halfCheck;
+        return orphanCheck;
     }
 
     renderNodeIcon() {
