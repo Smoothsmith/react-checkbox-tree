@@ -138,7 +138,11 @@ class TreeNode extends React.Component {
     }
 
     renderCheckboxIcon() {
-        const { checked, icons: { uncheck, check, halfCheck } } = this.props;
+        const {
+            checked, icons: {
+                uncheck, check, halfCheck, orphanCheck,
+            },
+        } = this.props;
 
         if (checked === 0) {
             return uncheck;
