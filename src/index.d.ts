@@ -12,18 +12,11 @@ declare module "react-checkbox-tree" {
         title?: string;
     }
 
-    interface OnCheckNode extends Node {
-        checked: boolean;
-    }
-
-    interface OnExpandNode extends Node {
-        expanded: boolean;
-    }
-
     interface Icons {
         check?: React.ReactNode;
         uncheck?: React.ReactNode;
         halfCheck?: React.ReactNode;
+        orphanCheck?: React.ReactNode;
         expandOpen?: React.ReactNode;
         expandClose?: React.ReactNode;
         expandAll?: React.ReactNode;
@@ -39,8 +32,8 @@ declare module "react-checkbox-tree" {
         toggle: string;
     }
 
-    interface CheckboxProps {
-        nodes: Array<Node>;
+    interface CheckboxProps<NodeType extends Node = Node> {
+        nodes: Array<NodeType>;
 
         checkModel?: string;
         checked?: Array<string>;
@@ -62,9 +55,9 @@ declare module "react-checkbox-tree" {
         showExpandAll?: boolean;
         showNodeIcon?: boolean;
         showNodeTitles?: boolean;
-        onCheck?: (checked: Array<string>, node: OnCheckNode) => void;
-        onClick?: (node: OnCheckNode) => void;
-        onExpand?: (expanded: Array<string>, node: OnExpandNode) => void;
+        onCheck?: (checked: Array<string>, node: NodeType & {checked: boolean}) => void;
+        onClick?: (node: NodeType & {checked: boolean}) => void;
+        onExpand?: (expanded: Array<string>, node: NodeType & {expanded: boolean}) => void;
     }
 
     export default class CheckboxTree extends React.Component<CheckboxProps> {}
