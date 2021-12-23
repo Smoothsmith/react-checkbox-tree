@@ -1,10 +1,7 @@
 # react-checkbox-tree
 
 [![npm](https://img.shields.io/npm/v/react-checkbox-tree.svg?style=flat-square)](https://www.npmjs.com/package/react-checkbox-tree)
-[![Build Status](https://img.shields.io/travis/jakezatecky/react-checkbox-tree/master.svg?style=flat-square)](https://travis-ci.org/jakezatecky/react-checkbox-tree)
-[![Dependency Status](https://img.shields.io/david/jakezatecky/react-checkbox-tree.svg?style=flat-square)](https://david-dm.org/jakezatecky/react-checkbox-tree)
-[![devDependency Status](https://david-dm.org/jakezatecky/react-checkbox-tree/dev-status.svg?style=flat-square)](https://david-dm.org/jakezatecky/react-checkbox-tree?type=dev)
-[![Greenkeeper badge](https://badges.greenkeeper.io/jakezatecky/react-checkbox-tree.svg?style=flat-square)](https://greenkeeper.io/)
+[![Build Status](https://img.shields.io/travis/com/jakezatecky/react-checkbox-tree?style=flat-square)](https://app.travis-ci.com/github/jakezatecky/react-checkbox-tree)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/jakezatecky/react-checkbox-tree/master/LICENSE.txt)
 
 > A simple and elegant checkbox tree for React.
@@ -44,10 +41,9 @@ Either include one of these files in your stylesheets or utilize a CSS loader:
 import 'react-checkbox-tree/lib/react-checkbox-tree.css';
 ```
 
-
 ### Render Component
 
-A quick usage example is included below. Note that the react-checkbox-tree component is [controlled](https://facebook.github.io/react/docs/forms.html#controlled-components). In other words, it is stateless. You must update its `checked` and `expanded` properties whenever a change occurs.
+A quick usage example is included below. Note that the react-checkbox-tree component is [controlled](https://facebook.github.io/react/docs/forms.html#controlled-components). In other words, you must update its `checked` and `expanded` properties whenever a change occurs.
 
 ``` jsx
 import React from 'react';
@@ -86,7 +82,16 @@ All node objects **must** have a unique `value`. This value is serialized into t
 
 #### Changing the Default Icons
 
-By default, **react-checkbox-tree** uses Font Awesome for the various icons that appear in the tree. To change the defaults, simply pass in the `icons` property and override the defaults. Note that you can override as many or as little icons as you like:
+By default, **react-checkbox-tree** uses Font Awesome 4 for the various icons that appear in the tree. To utilize Font Awesome 5 icons, simply pass in `iconsClass="fa5"`:
+
+``` jsx
+<CheckboxTree
+    ...
+    iconsClass="fa5"
+/>
+```
+
+To change the rendered icons entirely, simply pass in the `icons` property and override the defaults. Note that you can override as many or as little icons as you like:
 
 ``` jsx
 <CheckboxTree
@@ -130,18 +135,38 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 />
 ```
 
+### Utility Functions
+
+In addition to the `CheckboxTree` component, additional utility functions are available to set the initial state of the tree.
+
+#### `expandNodesToLevel(nodes, targetLevel)`
+
+Creates a list of all parent node keys until `targetLevel`.
+
+Arguments:
+
+* `nodes` (`Array`): The same array of nodes passed into the main `CheckboxTree` component
+* `targetLevel` (`number`): The maximum expansion depth. Use `Infinity` for maximum depth.
+
+Returns:
+
+* `Array`: A list of node keys.
+
 ### Properties
 
 | Property             | Type     | Description                                                                                                            | Default     |
 | -------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------- | ----------- |
 | `nodes`              | array    | **Required**. Specifies the tree nodes and their children.                                                             |             |
+| `checkModel`         | string   | Specifies which checked nodes should be stored in the `checked` array. Accepts `'leaf'` or `'all'`.                    | `'leaf'`    |
 | `checked`            | array    | An array of checked node values.                                                                                       | `[]`        |
+| `direction`          | string   | A string that specify whether the direction of the component is left-to-right (`'ltr'`) or right-to-left (`'rtl'`).    | `'ltr'`     |
 | `disabled`           | bool     | If true, the component will be disabled and nodes cannot be checked.                                                   | `false`     |
 | `expandDisabled`     | bool     | If true, the ability to expand nodes will be disabled.                                                                 | `false`     |
 | `expandOnClick`      | bool     | If true, nodes will be expanded by clicking on labels. Requires a non-empty `onClick` function.                        | `false`     |
-| `icons`              | object   | An object containing the mappings for the various icons and their components. See **Changing the Default Icons**.      | `{ ... }`   |
-| `id`                 | string   | A string to be used for the HTML ID of the rendered tree and its nodes.                                                | `null`      |
 | `expanded`           | array    | An array of expanded node values.                                                                                      | `[]`        |
+| `icons`              | object   | An object containing the mappings for the various icons and their components. See **Changing the Default Icons**.      | `{ ... }`   |
+| `iconsClass`         | string   | A string that specifies which icons class to utilize. Currently, `'fa4'` and `'fa5'` are supported.                    | `'fa4'`     |
+| `id`                 | string   | A string to be used for the HTML ID of the rendered tree and its nodes.                                                | `null`      |
 | `lang`               | object   | An object containing the language mappings for the various text elements.                                              | `{ ... }`   |
 | `name`               | string   | Optional name for the hidden `<input>` element.                                                                        | `undefined` |
 | `nameAsArray`        | bool     | If true, the hidden `<input>` will encode its values as an array rather than a joined string.                          | `false`     |

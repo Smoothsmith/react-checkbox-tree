@@ -122,14 +122,14 @@ class FilterExample extends React.Component {
     filterTree() {
         // Reset nodes back to unfiltered state
         if (!this.state.filterText) {
-            this.setState(prevState => ({
+            this.setState((prevState) => ({
                 nodesFiltered: prevState.nodes,
             }));
 
             return;
         }
 
-        const nodesFiltered = prevState => (
+        const nodesFiltered = (prevState) => (
             { nodesFiltered: prevState.nodes.reduce(this.filterNodes, []) }
         );
 
@@ -172,6 +172,7 @@ class FilterExample extends React.Component {
                 <CheckboxTree
                     checked={checked}
                     expanded={expanded}
+                    iconsClass="fa5"
                     nodes={nodesFiltered}
                     onCheck={this.onCheck}
                     onExpand={this.onExpand}

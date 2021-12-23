@@ -1,5 +1,45 @@
 # CHANGELOG
 
+## [v1.7.2](https://github.com/jakezatecky/react-checkbox-tree/compare/v1.7.1...v1.7.2) (2021-08-09)
+
+### Bug Fixes
+
+* [#281]: Fix accessibility issues with checkbox nodes
+* [#288]: Fix issue with custom checkbox icons appearing when `nativeCheckboxes={true}`
+
+## [v1.7.1](https://github.com/jakezatecky/react-checkbox-tree/compare/v1.7.0...v1.7.1) (2021-06-08)
+
+### Build
+
+* Fix build issues for default exports
+
+## [v1.7.0](https://github.com/jakezatecky/react-checkbox-tree/compare/v1.6.0...v1.7.0) (2021-06-08)
+
+### New Features
+
+* [#182]: Add `direction` property to support RTL languages
+* [#211]: Throw an error when nodes have duplicate values
+* [#244]: Add `expandNodesToLevel` utility
+
+### Bug Fixes
+
+* [#208]: Add missing `onCheck` argument in TypeScript definition
+* [#248]: Add missing `onExpand` argument in TypeScript definition
+
+## [v1.6.0](https://github.com/jakezatecky/react-checkbox-tree/compare/v1.5.0...v1.6.0) (2019-12-11)
+
+### New Features
+
+* [#13]: Add `checkModel` property to specify which nodes should be stored in the `checked` array (currently `"all"` and `"leaf"` supported)
+* [#126]: Add `iconsClass` property and allow `'fa5'` to fully support Font Awesome 5 icons
+* [#171]: Allow parent nodes to have an empty `children` array
+
+### Bug Fixes
+
+* [#127]: Change TypeScript definition of TreeNode's `label` property to `React.ReactNode` to better align with the PropType
+* [#145]: Fix alignment of many React properties to TypeScript typings
+* [#180]: Fix issue where the `id` property did not apply to the top-level CheckboxTree container
+
 ## [v1.5.0](https://github.com/jakezatecky/react-checkbox-tree/compare/v1.4.1...v1.5.0) (2019-01-25)
 
 ### New Features

@@ -28,7 +28,7 @@ const nodes = [
                 value: '/app/Providers',
                 label: 'Providers',
                 children: [{
-                    value: '/app/Http/Providers/EventServiceProvider.js',
+                    value: '/app/Providers/EventServiceProvider.js',
                     label: 'EventServiceProvider.js',
                 }],
             },
@@ -116,6 +116,7 @@ class PessimisticToggleExample extends React.Component {
             <CheckboxTree
                 checked={checked}
                 expanded={expanded}
+                iconsClass="fa5"
                 nodes={nodes}
                 optimisticToggle={false}
                 onCheck={this.onCheck}

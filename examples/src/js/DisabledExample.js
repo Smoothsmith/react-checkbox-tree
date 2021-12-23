@@ -28,7 +28,7 @@ const nodes = [
                 value: '/app/Providers',
                 label: 'Providers',
                 children: [{
-                    value: '/app/Http/Providers/EventServiceProvider.js',
+                    value: '/app/Providers/EventServiceProvider.js',
                     label: 'EventServiceProvider.js',
                 }],
             },
@@ -117,6 +117,7 @@ class DisabledExample extends React.Component {
                 checked={checked}
                 disabled
                 expanded={expanded}
+                iconsClass="fa5"
                 nodes={nodes}
                 onCheck={this.onCheck}
                 onExpand={this.onExpand}

@@ -1,5 +1,5 @@
 import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { JSDOM } from 'jsdom';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -9,8 +9,8 @@ const { window } = jsdom;
 
 function copyProps(src, target) {
     const props = Object.getOwnPropertyNames(src)
-        .filter(prop => typeof target[prop] === 'undefined')
-        .map(prop => Object.getOwnPropertyDescriptor(src, prop));
+        .filter((prop) => typeof target[prop] === 'undefined')
+        .map((prop) => Object.getOwnPropertyDescriptor(src, prop));
     Object.defineProperties(target, props);
 }
 

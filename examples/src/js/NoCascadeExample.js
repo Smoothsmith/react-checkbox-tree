@@ -28,7 +28,7 @@ const nodes = [
                 value: '/app/Providers',
                 label: 'Providers',
                 children: [{
-                    value: '/app/Http/Providers/EventServiceProvider.js',
+                    value: '/app/Providers/EventServiceProvider.js',
                     label: 'EventServiceProvider.js',
                 }],
             },
@@ -117,6 +117,7 @@ class NoCascadeExample extends React.Component {
             <CheckboxTree
                 checked={checked}
                 expanded={expanded}
+                iconsClass="fa5"
                 noCascade
                 nodes={nodes}
                 onCheck={this.onCheck}

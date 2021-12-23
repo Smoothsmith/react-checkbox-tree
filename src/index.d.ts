@@ -2,27 +2,35 @@ import * as React from 'react';
 
 declare module "react-checkbox-tree" {
     interface Node {
-        label: JSX.Element;
+        label: React.ReactNode;
         value: string;
         children?: Array<Node>;
         className?: string;
         disabled?: boolean;
-        icon?: JSX.Element;
+        icon?: React.ReactNode;
         showCheckbox?: boolean;
         title?: string;
     }
 
+    interface OnCheckNode extends Node {
+        checked: boolean;
+    }
+
+    interface OnExpandNode extends Node {
+        expanded: boolean;
+    }
+
     interface Icons {
-        check?: JSX.Element;
-        uncheck?: JSX.Element;
-        halfCheck?: JSX.Element;
-        expandOpen?: JSX.Element;
-        expandClose?: JSX.Element;
-        expandAll?: JSX.Element;
-        collapseAll?: JSX.Element;
-        parentClose?: JSX.Element;
-        parentOpen?: JSX.Element;
-        leaf?: JSX.Element;
+        check?: React.ReactNode;
+        uncheck?: React.ReactNode;
+        halfCheck?: React.ReactNode;
+        expandOpen?: React.ReactNode;
+        expandClose?: React.ReactNode;
+        expandAll?: React.ReactNode;
+        collapseAll?: React.ReactNode;
+        parentClose?: React.ReactNode;
+        parentOpen?: React.ReactNode;
+        leaf?: React.ReactNode;
     }
 
     interface Language {
@@ -33,15 +41,16 @@ declare module "react-checkbox-tree" {
 
     interface CheckboxProps {
         nodes: Array<Node>;
-        checked: Array<string>;
-        expanded: Array<string>;
-        onCheck: (checked: Array<string>) => void;
-        onExpand: (expanded: Array<string>) => void;
 
+        checkModel?: string;
+        checked?: Array<string>;
+        direction?: string;
         disabled?: boolean;
         expandDisabled?: boolean;
         expandOnClick?: boolean;
+        expanded?: Array<string>;
         icons?: Icons;
+        iconsClass?: string;
         id?: string;
         lang?: Language;
         name?: string;
@@ -52,9 +61,11 @@ declare module "react-checkbox-tree" {
         optimisticToggle?: boolean;
         showExpandAll?: boolean;
         showNodeIcon?: boolean;
-        showNodeTitle?: boolean;
-        onClick?: (event: { checked: boolean, value: any }) => void;
+        showNodeTitles?: boolean;
+        onCheck?: (checked: Array<string>, node: OnCheckNode) => void;
+        onClick?: (node: OnCheckNode) => void;
+        onExpand?: (expanded: Array<string>, node: OnExpandNode) => void;
     }
 
-    export default class CheckboxTree extends React.Component<CheckboxProps> { }
+    export default class CheckboxTree extends React.Component<CheckboxProps> {}
 }
